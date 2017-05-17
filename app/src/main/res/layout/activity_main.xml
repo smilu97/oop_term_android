@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <android.support.constraint.ConstraintLayout
+                <LinearLayout
                     android:id="@+id/tab3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -48,56 +48,107 @@
                     tools:layout_editor_absoluteX="8dp"
                     tools:layout_editor_absoluteY="8dp">
 
-                    <EditText
-                        android:id="@+id/sms_content_edit"
-                        android:layout_width="360dp"
-                        android:layout_height="160dp"
-                        android:ems="10"
-                        android:hint="내용"
-                        android:inputType="textPersonName"
+                    <TabHost
+                        android:id="@+id/sms_Tab"
+                        android:layout_width="364dp"
+                        android:layout_height="439dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/sms_number_edit" />
+                        app:layout_constraintLeft_toLeftOf="parent">
 
-                    <EditText
-                        android:id="@+id/sms_number_edit"
-                        android:layout_width="360dp"
-                        android:layout_height="160dp"
-                        android:ems="10"
-                        android:hint="전화번호"
-                        android:inputType="phone"
-                        android:textAlignment="center"
-                        android:textSize="40sp"
-                        app:layout_constraintBottom_toTopOf="@+id/sms_content_edit"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/sms_receive_btn" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
-                    <Button
-                        android:id="@+id/sms_receive_btn"
-                        style="@style/Widget.AppCompat.Button.Colored"
-                        android:layout_width="180dp"
-                        android:layout_height="60dp"
-                        android:text="RECEIVE"
-                        app:layout_constraintBottom_toTopOf="@+id/sms_number_edit"
-                        app:layout_constraintLeft_toRightOf="@+id/sms_send_btn"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                            <TabWidget
+                                android:id="@android:id/tabs"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp" />
 
-                    <Button
-                        android:id="@+id/sms_send_btn"
-                        style="@style/Widget.AppCompat.Button.Colored"
-                        android:layout_width="180dp"
-                        android:layout_height="60dp"
-                        android:text="SEND"
-                        app:layout_constraintBottom_toTopOf="@+id/sms_number_edit"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toLeftOf="@+id/sms_receive_btn"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </android.support.constraint.ConstraintLayout>
+                            <FrameLayout
+                                android:id="@android:id/tabcontent"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
 
-                <android.support.constraint.ConstraintLayout
+                                <LinearLayout
+                                    android:id="@+id/tab3_2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <ListView
+                                        android:id="@+id/sms_list"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="400dp"
+                                        tools:layout_editor_absoluteX="68dp"
+                                        tools:layout_editor_absoluteY="1178dp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/tab3_1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <Button
+                                        android:id="@+id/sms_send_btn"
+                                        style="@style/Widget.AppCompat.Button.Colored"
+                                        android:layout_width="360dp"
+                                        android:layout_height="60dp"
+                                        android:text="SEND"
+                                        app:layout_constraintBottom_toTopOf="@+id/sms_number_edit"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toLeftOf="@+id/sms_receive_btn"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <Button
+                                        android:id="@+id/sms_receive_btn"
+                                        style="@style/Widget.AppCompat.Button.Colored"
+                                        android:layout_width="360dp"
+                                        android:layout_height="60dp"
+                                        android:text="RECEIVE"
+                                        app:layout_constraintBottom_toTopOf="@+id/sms_number_edit"
+                                        app:layout_constraintLeft_toRightOf="@+id/sms_send_btn"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <EditText
+                                        android:id="@+id/sms_content_edit"
+                                        android:layout_width="360dp"
+                                        android:layout_height="150dp"
+                                        android:ems="10"
+                                        android:hint="내용"
+                                        android:inputType="textPersonName"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/sms_number_edit" />
+
+                                    <EditText
+                                        android:id="@+id/sms_number_edit"
+                                        android:layout_width="360dp"
+                                        android:layout_height="150dp"
+                                        android:ems="10"
+                                        android:hint="전화번호"
+                                        android:inputType="phone"
+                                        android:textAlignment="center"
+                                        android:textSize="40sp"
+                                        app:layout_constraintBottom_toTopOf="@+id/sms_content_edit"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/sms_receive_btn" />
+
+                                </LinearLayout>
+
+                            </FrameLayout>
+                        </LinearLayout>
+                    </TabHost>
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/tab2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -105,43 +156,92 @@
                     tools:layout_editor_absoluteX="0dp"
                     tools:layout_editor_absoluteY="0dp">
 
-                    <EditText
-                        android:id="@+id/call_number_edit"
-                        android:layout_width="360dp"
-                        android:layout_height="200dp"
-                        android:ems="10"
-                        android:hint="전화번호"
-                        android:inputType="phone"
-                        android:textAlignment="center"
-                        android:textSize="40sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/call_receive_btn" />
+                    <TabHost
+                        android:id="@+id/call_tab"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:layout_editor_absoluteX="2dp"
+                        tools:layout_editor_absoluteY="137dp">
 
-                    <Button
-                        android:id="@+id/call_receive_btn"
-                        style="@style/Widget.AppCompat.Button.Colored"
-                        android:layout_width="180dp"
-                        android:layout_height="60dp"
-                        android:text="RECEIVE"
-                        app:layout_constraintLeft_toRightOf="@+id/call_send_btn"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/call_number_edit" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
-                    <Button
-                        android:id="@+id/call_send_btn"
-                        style="@style/Widget.AppCompat.Button.Colored"
-                        android:layout_width="180dp"
-                        android:layout_height="60dp"
-                        android:text="CALL"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toLeftOf="@+id/call_receive_btn"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toTopOf="@+id/call_number_edit" />
+                            <TabWidget
+                                android:id="@android:id/tabs"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
 
-                </android.support.constraint.ConstraintLayout>
+                            <FrameLayout
+                                android:id="@android:id/tabcontent"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <LinearLayout
+                                    android:id="@+id/tab2_1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <Button
+                                        android:id="@+id/call_send_btn"
+                                        style="@style/Widget.AppCompat.Button.Colored"
+                                        android:layout_width="360dp"
+                                        android:layout_height="60dp"
+                                        android:text="CALL"
+                                        app:layout_constraintBottom_toTopOf="@+id/call_number_edit"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toLeftOf="@+id/call_receive_btn"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:layout_constraintVertical_bias="0.49" />
+
+                                    <Button
+                                        android:id="@+id/call_receive_btn"
+                                        style="@style/Widget.AppCompat.Button.Colored"
+                                        android:layout_width="360dp"
+                                        android:layout_height="60dp"
+                                        android:text="RECEIVE"
+                                        app:layout_constraintBottom_toTopOf="@+id/call_number_edit"
+                                        app:layout_constraintLeft_toRightOf="@+id/call_send_btn"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <EditText
+                                        android:id="@+id/call_number_edit"
+                                        android:layout_width="360dp"
+                                        android:layout_height="200dp"
+                                        android:ems="10"
+                                        android:hint="전화번호"
+                                        android:inputType="phone"
+                                        android:textAlignment="center"
+                                        android:textSize="40sp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/call_receive_btn" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/tab2_2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <ListView
+                                        android:id="@+id/call_list"
+                                        android:layout_width="360dp"
+                                        android:layout_height="400dp"
+                                        tools:layout_editor_absoluteX="2dp"
+                                        tools:layout_editor_absoluteY="8dp" />
+                                </LinearLayout>
+
+                            </FrameLayout>
+                        </LinearLayout>
+                    </TabHost>
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/tab1"

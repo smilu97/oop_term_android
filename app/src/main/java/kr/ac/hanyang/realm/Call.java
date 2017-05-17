@@ -1,7 +1,9 @@
 package kr.ac.hanyang.realm;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import io.realm.Realm;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -36,5 +38,14 @@ public class Call extends RealmObject{
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String description () {
+        String format = "from: %s\n" +
+                "to: %s\n" +
+                "date: %s";
+        Realm realm = Realm.getDefaultInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return String.format(format, from, to, sdf.format(date));
     }
 }

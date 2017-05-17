@@ -1,5 +1,6 @@
 package kr.ac.hanyang.realm;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import io.realm.RealmObject;
@@ -45,5 +46,14 @@ public class SMS extends RealmObject {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String description () {
+        String format = "from: %s\n" +
+                "to: %s\n" +
+                "content: %s\n" +
+                "date: %s";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return String.format(format, from, to, content, sdf.format(date));
     }
 }
