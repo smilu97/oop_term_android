@@ -8,16 +8,14 @@ import io.realm.annotations.PrimaryKey;
  */
 
 public class PhoneNumber extends RealmObject {
-    @PrimaryKey
-    Integer id;
     String phoneNumber;
 
-    public Integer getId() {
-        return id;
+    public PhoneNumber() {
+        this.phoneNumber = null;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public PhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getPhoneNumber() {

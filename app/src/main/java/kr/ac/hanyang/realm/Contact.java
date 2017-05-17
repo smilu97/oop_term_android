@@ -12,7 +12,6 @@ public class Contact extends RealmObject {
     @PrimaryKey
     Integer id;
     String name;
-    RealmList<Email> emails;
     RealmList<PhoneNumber> phoneNumbers;
 
     public Integer getId() {
@@ -29,14 +28,6 @@ public class Contact extends RealmObject {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public RealmList<Email> getEmails() {
-        return emails;
-    }
-
-    public void setEmails(RealmList<Email> emails) {
-        this.emails = emails;
     }
 
     public RealmList<PhoneNumber> getPhoneNumbers() {
